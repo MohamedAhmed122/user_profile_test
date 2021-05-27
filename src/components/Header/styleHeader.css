@@ -11,6 +11,17 @@
   border-radius: 100px;
   border: 2px solid white;
 }
+.main_title {
+  cursor: pointer;
+  padding: 20px;
+}
+.small_title {
+  margin: 1rem 2rem;
+  
+}
+.main_title:hover {
+  background-color: #b4afaf;
+}
 .upload_btn {
   background-color: #1976d2;
   border-radius: 50%;

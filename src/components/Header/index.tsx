@@ -13,7 +13,7 @@ import "./styleHeader.css";
 
 const Header: React.FC = () => {
   // state for location
-  const [address, setAddress] = useState<string>("Egypt");
+  const [address, setAddress] = useState<string>("USA, Chicago");
   const [displayAddressInput, setDisplayAddressInput] =
     useState<boolean>(false);
   // state for name
@@ -21,7 +21,7 @@ const Header: React.FC = () => {
   const [displayNameInput, setDisplayNameInput] = useState<boolean>(false);
   const [nameError, setNameError] = useState(false);
   // state for language
-  const [lang, setLang] = useState<string>("Russia");
+  const [lang, setLang] = useState<string>("English Language");
   const [displayLangInput, setDisplayLangInput] = useState<boolean>(false);
   const [LangError, setLangError] = useState<boolean>(false);
   // state for skills
@@ -52,7 +52,7 @@ const Header: React.FC = () => {
                 inputValue={name}
                 setInputValue={setName}
               >
-                <h1 onClick={() => setDisplayNameInput(true)} className="_mr">
+                <h1 onClick={() => setDisplayNameInput(true)} className="_mr main_title">
                   {name}
                 </h1>
               </DynamicForm>
@@ -64,7 +64,7 @@ const Header: React.FC = () => {
                 inputValue={lang}
                 setInputValue={setLang}
               >
-                <p onClick={() => setDisplayLangInput(true)} className="_mr">
+                <p onClick={() => setDisplayLangInput(true)} className="small_title">
                   {lang}
                 </p>
               </DynamicForm>
@@ -75,7 +75,7 @@ const Header: React.FC = () => {
                   setDisplayInput={setDisplayAddressInput}
                 />
               ) : (
-                <p onClick={() => setDisplayAddressInput(true)} className="_mr">
+                <p onClick={() => setDisplayAddressInput(true)} className="small_title">
                   {address}
                 </p>
               )}

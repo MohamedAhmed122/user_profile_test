@@ -7,8 +7,8 @@ import { Location, Skill } from "./typings";
 
 function App() {
   const [location, setLocation] = useState<Location>({
-    lat: 1,
-    lng: 1,
+    lat: 41.8745746,
+    lng: -87.668836,
   });
   const [isLocationChanged, setIsLocationChanged] = useState(false);
   const [skills, setSkills] = useState<Array<Skill>>([
@@ -26,6 +26,7 @@ function App() {
     },
   ]);
 
+  console.log(location)
   return (
     <GlobalContext.Provider
       value={{
