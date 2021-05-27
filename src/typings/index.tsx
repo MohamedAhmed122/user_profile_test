@@ -1,4 +1,10 @@
 export interface Location {
   lng: number;
-  lat: number
+  lat: number;
+}
+
+export interface FooterContentData {
+  id: number;
+  title: string;
+  text: string;
 }

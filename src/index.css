@@ -56,7 +56,12 @@ a {
   align-items: center;
   justify-content: space-evenly;
 }
-
+.flex_wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 .input {
   background-color: rgba(0, 0, 0, 0.06);
   border-bottom: 1px solid black;
@@ -72,4 +77,7 @@ a {
   background-color: transparent;
   border: none;
   padding: 10px;
+}
+.title {
+  margin-bottom: 1.5rem;
 }

@@ -1,0 +1,21 @@
+.footer_contain_container,
+.map_container {
+  width: 50%;
+}
+.right {
+  transform: scaleY(-1);
+  margin-top: 30px;
+}
+.left {
+  transform: scaleX(-1);
+  margin-top: -20px;
+}
+.quote_icon {
+  font-size: 60px !important;
+  color: lightgray;
+}
+.footer_subtext {
+  width: 250px;
+  text-align: center;
+  line-height: 30px;
+}
