@@ -1,27 +1,29 @@
-import React from "react";
-import { useState } from "react";
+import React, { useContext } from "react";
 import SampleCode from "./SampleCode";
 import "./styleBody.css";
+import Experience from "./Experience/index";
+import GlobalContext from "../../GlobalContext";
+import { Skill } from "../../typings";
+import { compare } from "../../utils/utils";
 
 const Body: React.FC = () => {
-  const [exps, setExps] = useState([
-    {
-      name: 'PHP'
-    }
-  ])
+  const { skills } = useContext(GlobalContext);
+  skills.sort(compare);
   return (
     <div className="flex_wrap">
       <div className="body_content">
         <h2 className="title">Portfolio</h2>
         {data.map((text) => (
           <p key={text} className="_mr body_text">
-            {" "}
             - {text}
           </p>
         ))}
       </div>
       <div className="body_content">
         <h2 className="title">Experience</h2>
+        {skills.map((skill: Skill) => (
+          <Experience key={skill.skill} skill={skill} />
+        ))}
       </div>
       <div className="body_content">
         <h2 className="title">Sample Code</h2>
