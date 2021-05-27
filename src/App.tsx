@@ -20,7 +20,6 @@ function App() {
       <Header />
       <div className="container">
         <Body />
-        <LocationSearchInput />
         <Footer />
       </div>
     </LocationContext.Provider>

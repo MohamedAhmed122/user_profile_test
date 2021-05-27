@@ -25,7 +25,7 @@ function UploadPhoto() {
         {preview ? (
           <>
             <button
-             className='upload_btn'
+              className="upload_btn"
               onClick={(event) => {
                 event.preventDefault();
                 fileInputRef.current.click();
@@ -45,7 +45,7 @@ function UploadPhoto() {
         ) : (
           <>
             <button
-             className='upload_btn'
+              className="upload_btn"
               onClick={(event) => {
                 event.preventDefault();
                 fileInputRef.current.click();
@@ -65,7 +65,7 @@ function UploadPhoto() {
           style={{ display: "none" }}
           ref={fileInputRef}
           accept="image/*"
-          onChange={(event : any) => {
+          onChange={(event: any) => {
             const file = event.target.files[0];
             if (file) {
               setImage(file);

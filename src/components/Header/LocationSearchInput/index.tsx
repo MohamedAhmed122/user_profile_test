@@ -4,13 +4,22 @@ import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
 } from "react-places-autocomplete";
-import { Location } from '../../../typings/index';
+import { Location } from "../../../typings/index";
 
-import './searchInputStyle.css'
+import "./searchInputStyle.css";
 
-export default function LocationSearchInput() {
+interface SearchInputProps {
+  address: string;
+  setAddress: (address: string) => void;
+  setDisplayInput: (bool: boolean) => void;
+}
+
+const LocationSearchInput: React.FC<SearchInputProps> = ({
+  address,
+  setAddress,
+  setDisplayInput
+}) => {
   const { setLocation, setIsLocationChanged } = useContext(LocationContext);
-  const [address, setAddress] = useState<string>("");
 
   const handleChange = (address: string) => {
     setAddress(address);
@@ -22,9 +31,9 @@ export default function LocationSearchInput() {
       .then((latLng: Location) => {
         setLocation(latLng);
         setIsLocationChanged(true);
-        // setDisplayInput(false)
+        setDisplayInput(false)
       })
-      .catch((error:any) => console.error("Error", error));
+      .catch((error: any) => console.error("Error", error));
   };
 
   return (
@@ -67,5 +76,6 @@ export default function LocationSearchInput() {
       )}
     </PlacesAutocomplete>
   );
-}
+};
 
+export default LocationSearchInput;
