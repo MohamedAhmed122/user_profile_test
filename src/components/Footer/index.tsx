@@ -20,7 +20,7 @@ const data: Array<FooterContentData> = [
 
 const Footer: React.FC = () => {
   return (
-    <div className="flex_align" style={{ height: "50vh" }}>
+    <div className="footer">
       <div className="footer_contain_container">
         <div className="flex_wrap">
           {data.map((data) => (

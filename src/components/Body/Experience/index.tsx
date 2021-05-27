@@ -15,7 +15,7 @@ const Experience: React.FC<ExperienceProps> = ({ skill }) => {
   const handleSubmit = (e: any) => {
     e.preventDefault();
     setDisplayInput(false);
-    const exp = skills.find((s: Skill) => s.skill == skill.skill);
+    const exp = skills.find((s: Skill) => s.skill === skill.skill);
     let newSkills: any = skills.filter((s: Skill) => s.skill !== skill.skill);
     setSkills([...newSkills, { skill: exp.skill, years }]);
   };

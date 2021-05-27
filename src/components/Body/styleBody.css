@@ -1,6 +1,14 @@
+.body {
+  margin: 3rem 0;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
 .body_content {
   width: 25%;
 }
+
 .body_text {
   line-height: 25px;
   color: #1976d2;
@@ -14,4 +22,16 @@
   text-align: end;
   color: #1976d2;
   border-bottom: 1px dashed #1976d2;
+}
+
+@media (max-width: 1400px) {
+  .body_content {
+    width: 45%;
+    margin: 1%;
+  }
+}
+@media (max-width: 900px) {
+  .body_content {
+    width: 100%;
+  }
 }

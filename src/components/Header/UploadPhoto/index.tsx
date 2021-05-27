@@ -35,6 +35,7 @@ function UploadPhoto() {
             </button>
             <img
               src={preview}
+              alt='profile'
               className="header_image"
               style={{ objectFit: "cover" }}
               onClick={() => {

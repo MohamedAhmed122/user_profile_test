@@ -38,7 +38,7 @@ const Header: React.FC = () => {
     <div className="header flex_col">
       <div className="container">
         <div className="flex_between">
-          <div className="flex_align">
+          <div className="flex_align header_info">
             <UploadPhoto />
             <div>
               <DynamicForm

@@ -10,7 +10,7 @@ const Body: React.FC = () => {
   const { skills } = useContext(GlobalContext);
   skills.sort(compare);
   return (
-    <div className="flex_wrap">
+    <div className="body">
       <div className="body_content">
         <h2 className="title">Portfolio</h2>
         {data.map((text) => (

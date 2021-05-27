@@ -16,7 +16,7 @@ const Map = () => {
         setIsLocationChanged(false);
       }, 1000);
     }
-  }, [isLocationChanged]);
+  }, [isLocationChanged, setIsLocationChanged]);
 
   if (isLocationChanged) return <Loading />;
   return (

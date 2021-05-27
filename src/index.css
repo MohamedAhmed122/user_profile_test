@@ -81,3 +81,9 @@ a {
 .title {
   margin-bottom: 1.5rem;
 }
+
+@media (max-width: 800px) {
+  .container {
+    width: 95%;
+  }
+}
