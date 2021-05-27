@@ -13,7 +13,8 @@
   line-height: 25px;
   color: #1976d2;
 }
-.body_text:hover {
+.body_text:hover,
+.years:hover {
   color: tomato;
   cursor: pointer;
 }
