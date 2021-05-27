@@ -5,8 +5,11 @@ import UploadPhoto from "./UploadPhoto";
 
 import LocalPrintshopIcon from "@material-ui/icons/LocalPrintshop";
 
-import "./styleHeader.css";
 import GlobalContext from "../../GlobalContext";
+import { Skill } from "../../typings";
+
+import "./styleHeader.css";
+
 
 const Header: React.FC = () => {
   // state for location
@@ -32,7 +35,7 @@ const Header: React.FC = () => {
   };
 
   const handleDelete = (skill: string) => {
-    setSkills(skills.filter((s: any) => s.skill !== skill));
+    setSkills(skills.filter((s: Skill) => s.skill !== skill));
   };
   return (
     <div className="header flex_col">
@@ -79,11 +82,13 @@ const Header: React.FC = () => {
               <div className="flex_align">
                 {skills.map((s: any) => (
                   <div key={s.skill}>
-                    <div
-                      className="delete_icon_container"
-                      onClick={() => handleDelete(s.skill)}
-                    >
-                      <div className="delete_icon"> x </div>
+                    <div className='icon_x'>
+                      <div
+                        className="delete_icon_container"
+                        onClick={() => handleDelete(s.skill)}
+                      >
+                        <div className="delete_icon"> x </div>
+                      </div>
                     </div>
                     <div className="badge">{s.skill}</div>
                   </div>

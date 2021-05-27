@@ -27,13 +27,21 @@
   border-radius: 7px;
   cursor: pointer;
 }
+/* .icon_x .delete_icon_container{
 
+  display: none;
+  cursor: pointer;
+}
+.icon_x:hover .delete_icon_container{
+  display: inline;
+} */
 .delete_icon_container {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   margin-bottom: -17px;
   color: white;
+  cursor: pointer;
 }
 .delete_icon {
   background-color: tomato;
@@ -64,6 +72,5 @@
   }
   .print {
     margin: 30px;
-    
   }
 }

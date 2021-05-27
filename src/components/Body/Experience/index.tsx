@@ -10,7 +10,7 @@ interface ExperienceProps {
 const Experience: React.FC<ExperienceProps> = ({ skill }) => {
   const [displayInput, setDisplayInput] = useState<Boolean>(false);
   const { skills, setSkills } = useContext(GlobalContext);
-  const [years, setYears] = useState<number>();
+  const [years, setYears] = useState<any>();
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -34,7 +34,8 @@ const Experience: React.FC<ExperienceProps> = ({ skill }) => {
             width={100}
             placeholder="Years"
             value={years}
-            onChange={(e) => setYears(e.target.value)}
+            onChange={(e: any) => setYears(e.target.value)}
+            // onChange={(e) => setYears(e.target.value)}
           />
           <button type="submit" style={{ display: "none" }}></button>
         </form>

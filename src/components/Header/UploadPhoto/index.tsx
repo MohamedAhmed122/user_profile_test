@@ -5,7 +5,8 @@ function UploadPhoto() {
   const [image, setImage] = useState<any>();
   const [preview, setPreview] = useState<any>();
 
-  const fileInputRef = useRef<any>();
+  const fileInputRef = useRef<any>(null);
+
 
   useEffect(() => {
     if (image) {
@@ -35,7 +36,7 @@ function UploadPhoto() {
             </button>
             <img
               src={preview}
-              alt='profile'
+              alt="profile"
               className="header_image"
               style={{ objectFit: "cover" }}
               onClick={() => {

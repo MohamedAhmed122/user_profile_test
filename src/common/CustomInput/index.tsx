@@ -8,7 +8,7 @@ interface InputProps {
   width?: number;
   placeholder: string;
   value: any;
-  onChange: (e: any) => void;
+  onChange: (event: React.ChangeEvent<HTMLInputElement> | string) => void | string;
   error?: boolean;
   success?: boolean;
   type?: string;
@@ -33,7 +33,7 @@ const CustomInput: React.FC<InputProps> = ({
           placeholder={placeholder}
           value={value}
           type={type}
-          onChange={(e) => onChange(e)}
+          onChange={onChange}
         />
         {error && <CancelIcon style={{ color: "red" }} />}
         {success && <CheckCircleIcon style={{ color: "green" }} />}
