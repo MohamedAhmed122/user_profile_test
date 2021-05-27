@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
+import { useContext } from "react";
 import CustomInput from "../../../common/CustomInput";
+import GlobalContext from "../../../GlobalContext";
 
 interface FormProps {
   displayInput: boolean;
@@ -9,8 +11,6 @@ interface FormProps {
   inputValue: string;
   inverted?: boolean;
   setError: (error: boolean) => void;
-  setSkills?: any;
-  skills?: any;
 }
 
 const DynamicForm: React.FC<FormProps> = ({
@@ -21,10 +21,10 @@ const DynamicForm: React.FC<FormProps> = ({
   inputValue,
   setError,
   inverted,
-  setSkills,
-  skills,
   children,
 }) => {
+  const { skills, setSkills } = useContext(GlobalContext);
+
   useEffect(() => {
     if (displayInput) {
       var nameRegex = /[-!$%^&*()_+|~=`{}\[\]:";'<>?,.\/@#]/;
@@ -37,7 +37,7 @@ const DynamicForm: React.FC<FormProps> = ({
     e.preventDefault();
     if (error) return;
     if (inverted) {
-      setSkills([...skills, inputValue]);
+      setSkills([...skills, { skill: inputValue, years: 0 }]);
     }
     setDisplayInput(false);
   };

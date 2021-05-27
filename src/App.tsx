@@ -1,10 +1,9 @@
 import { useState } from "react";
-import LocationContext from "./locationContext";
+import GlobalContext from "./GlobalContext";
 import Header from "./components/Header";
 import Body from "./components/Body";
 import Footer from "./components/Footer";
-import { Location } from "./typings";
-import Map from "./components/Footer/Map";
+import { Location, Skill } from "./typings";
 
 function App() {
   const [location, setLocation] = useState<Location>({
@@ -12,18 +11,38 @@ function App() {
     lng: 1,
   });
   const [isLocationChanged, setIsLocationChanged] = useState(false);
+  const [skills, setSkills] = useState<Array<Skill>>([
+    {
+      years: 2.4,
+      skill: "React",
+    },
+    {
+      years: 12.4,
+      skill: "JS",
+    },
+    {
+      years: 10.4,
+      skill: "TS",
+    },
+  ]);
 
   return (
-    <LocationContext.Provider
-      value={{ isLocationChanged, setIsLocationChanged, location, setLocation }}
+    <GlobalContext.Provider
+      value={{
+        isLocationChanged,
+        setIsLocationChanged,
+        location,
+        setLocation,
+        skills,
+        setSkills,
+      }}
     >
       <Header />
       <div className="container">
         <Body />
         <Footer />
-        {/* <Map /> */}
       </div>
-    </LocationContext.Provider>
+    </GlobalContext.Provider>
   );
 }
 

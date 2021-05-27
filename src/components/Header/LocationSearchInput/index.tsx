@@ -1,5 +1,5 @@
-import React, { useContext, useState } from "react";
-import LocationContext from "../../../locationContext";
+import React, { useContext } from "react";
+import GlobalContext from "../../../GlobalContext";
 import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
@@ -17,9 +17,9 @@ interface SearchInputProps {
 const LocationSearchInput: React.FC<SearchInputProps> = ({
   address,
   setAddress,
-  setDisplayInput
+  setDisplayInput,
 }) => {
-  const { setLocation, setIsLocationChanged } = useContext(LocationContext);
+  const { setLocation, setIsLocationChanged } = useContext(GlobalContext);
 
   const handleChange = (address: string) => {
     setAddress(address);
@@ -31,7 +31,7 @@ const LocationSearchInput: React.FC<SearchInputProps> = ({
       .then((latLng: Location) => {
         setLocation(latLng);
         setIsLocationChanged(true);
-        setDisplayInput(false)
+        setDisplayInput(false);
       })
       .catch((error: any) => console.error("Error", error));
   };

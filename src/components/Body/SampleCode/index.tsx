@@ -2,7 +2,7 @@ import { CodeBlock, dracula } from "react-code-blocks";
 
 function SampleCode() {
   return (
-    <div>
+    <div style={{ width: "90%" }}>
       <CodeBlock
         text={code}
         language={"javascript"}

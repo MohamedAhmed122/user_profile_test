@@ -1,14 +1,14 @@
 import { useContext, useEffect } from "react";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 import GoogleMapReact from "google-map-react";
-import LocationContext from "../../../locationContext";
+import GlobalContext from "../../../GlobalContext";
 import Loading from "../../../common/Loading/index";
 
 const Marker = () => <LocationOnIcon style={{ color: "red" }} />;
 
 const Map = () => {
   const { location, isLocationChanged, setIsLocationChanged } =
-    useContext(LocationContext);
+    useContext(GlobalContext);
 
   useEffect(() => {
     if (isLocationChanged) {

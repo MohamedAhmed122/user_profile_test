@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import DynamicForm from "./DynamicForm";
 import LocationSearchInput from "./LocationSearchInput";
 import UploadPhoto from "./UploadPhoto";
@@ -6,6 +6,7 @@ import UploadPhoto from "./UploadPhoto";
 import LocalPrintshopIcon from "@material-ui/icons/LocalPrintshop";
 
 import "./styleHeader.css";
+import GlobalContext from "../../GlobalContext";
 
 const Header: React.FC = () => {
   // state for location
@@ -21,12 +22,8 @@ const Header: React.FC = () => {
   const [displayLangInput, setDisplayLangInput] = useState<boolean>(false);
   const [LangError, setLangError] = useState<boolean>(false);
   // state for skills
+  const { skills, setSkills } = useContext(GlobalContext);
   const [displaySkillInput, setDisplaySkillInput] = useState<boolean>(false);
-  const [skills, setSkills] = useState<Array<string>>([
-    "React",
-    "JavaScript",
-    "TypeScript",
-  ]);
   const [skillError, setSkillError] = useState<boolean>(false);
   const [skill, setSkill] = useState<string>("");
 
@@ -35,7 +32,7 @@ const Header: React.FC = () => {
   };
 
   const handleDelete = (skill: string) => {
-    setSkills(skills.filter((s) => s !== skill));
+    setSkills(skills.filter((s: any) => s.skill !== skill));
   };
   return (
     <div className="header flex_col">
@@ -80,15 +77,15 @@ const Header: React.FC = () => {
                 </p>
               )}
               <div className="flex_align">
-                {skills.map((skill) => (
-                  <div key={skill}>
+                {skills.map((s: any) => (
+                  <div key={s.skill}>
                     <div
                       className="delete_icon_container"
-                      onClick={() => handleDelete(skill)}
+                      onClick={() => handleDelete(s.skill)}
                     >
                       <div className="delete_icon"> x </div>
                     </div>
-                    <div className="badge">{skill}</div>
+                    <div className="badge">{s.skill}</div>
                   </div>
                 ))}
                 <DynamicForm
@@ -98,8 +95,6 @@ const Header: React.FC = () => {
                   setDisplayInput={setDisplaySkillInput}
                   inputValue={skill}
                   setInputValue={setSkill}
-                  setSkills={setSkills}
-                  skills={skills}
                   inverted
                 >
                   <div
@@ -112,9 +107,9 @@ const Header: React.FC = () => {
               </div>
             </div>
           </div>
-          <div >
+          <div>
             <div className="flex_align print" onClick={handlePrint}>
-              <LocalPrintshopIcon style={{ marginRight: 10 ,}} />
+              <LocalPrintshopIcon style={{ marginRight: 10 }} />
               <p>Print Page</p>
             </div>
           </div>
