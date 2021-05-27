@@ -1,20 +1,27 @@
-import Header from './components/Header';
-import Body from './components/Body';
-import Footer from './components/Footer';
-import CustomInput from './common/CustomInput';
-import { useState } from 'react';
+import { useState } from "react";
+import LocationContext from "./locationContext";
+import Header from "./components/Header";
+import Body from "./components/Body";
+import Footer from "./components/Footer";
+import { Location } from "./typings";
 
 function App() {
-  const [input, setInput] = useState('')
+  const [location, setLocation] = useState<Location>({
+    lat: 1,
+    lng: 1,
+  });
+  const [isLocationChanged, setIsLocationChanged] = useState<boolean>(false);
+
   return (
-    <div className="App">
+    <LocationContext.Provider
+      value={{ location, setLocation, isLocationChanged, setIsLocationChanged }}
+    >
       <Header />
-      <div className='container'>
+      <div className="container">
         <Body />
         <Footer />
-        <CustomInput placeholder='Hello' value={input} onChange={(e) => setInput(e.target.value)}  />
       </div>
-    </div>
+    </LocationContext.Provider>
   );
 }
 

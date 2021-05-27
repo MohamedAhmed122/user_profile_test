@@ -28,7 +28,6 @@ const CustomInput: React.FC<InputProps> = ({
           placeholder={placeholder}
           value={value}
           onChange={(e) => onChange(e)}
-
         />
         {error && <CancelIcon style={{ color: "red" }} />}
         {success && <CheckCircleIcon style={{ color: "green" }} />}
