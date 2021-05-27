@@ -56,3 +56,20 @@ a {
   align-items: center;
   justify-content: space-evenly;
 }
+
+.input {
+  background-color: rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid black;
+}
+
+.error_input {
+  border-bottom: 1px solid red;
+}
+
+.input > input {
+  outline-width: 0;
+  flex: 1;
+  background-color: transparent;
+  border: none;
+  padding: 10px;
+}
