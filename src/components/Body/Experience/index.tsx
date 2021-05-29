@@ -10,10 +10,11 @@ interface ExperienceProps {
 const Experience: React.FC<ExperienceProps> = ({ skill }) => {
   const [displayInput, setDisplayInput] = useState<Boolean>(false);
   const { skills, setSkills } = useContext(GlobalContext);
-  const [years, setYears] = useState<any>();
+  const [years, setYears] = useState<any>(0);
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
+    if (years?.toString().length < 1 && Number(years) < 0.5)  return;
     setDisplayInput(false);
     const exp = skills.find((s: Skill) => s.skill === skill.skill);
     let newSkills: any = skills.filter((s: Skill) => s.skill !== skill.skill);
