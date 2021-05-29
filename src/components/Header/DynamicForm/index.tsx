@@ -11,6 +11,7 @@ interface FormProps {
   inputValue: string;
   inverted?: boolean;
   setError: (error: boolean) => void;
+  fontSize?: number;
 }
 
 const DynamicForm: React.FC<FormProps> = ({
@@ -22,6 +23,7 @@ const DynamicForm: React.FC<FormProps> = ({
   setError,
   inverted,
   children,
+  fontSize,
 }) => {
   const { skills, setSkills } = useContext(GlobalContext);
 
@@ -50,6 +52,7 @@ const DynamicForm: React.FC<FormProps> = ({
         <form onSubmit={handleNameSubmit}>
           <CustomInput
             success={!error}
+            fontSize={fontSize}
             error={error}
             width={inverted ? 100 : 300}
             placeholder="Change Name"

@@ -10,17 +10,18 @@
   height: 200px;
   border-radius: 100px;
   border: 2px solid white;
+  cursor: pointer;
 }
 .main_title {
   cursor: pointer;
-  padding: 20px;
+  padding: 15px 10px;
+  padding-right: 70px;
 }
 .small_title {
   margin: 1rem 2rem;
-  
 }
 .main_title:hover {
-  background-color: #b4afaf;
+  background-color: rgba(0, 0, 0, 0.06);
 }
 .upload_btn {
   background-color: #1976d2;
@@ -29,6 +30,13 @@
   margin-left: 140px;
   margin-bottom: -25px;
   position: absolute;
+  opacity: 0;
+}
+.image_container:hover > .upload_btn {
+  opacity: 1;
+}
+.skills_badges_container {
+  margin-left: 25px;
 }
 .badge {
   background-color: #333333;
@@ -38,14 +46,10 @@
   border-radius: 7px;
   cursor: pointer;
 }
-/* .icon_x .delete_icon_container{
 
-  display: none;
-  cursor: pointer;
+.badge_container:hover .delete_icon_container {
+  opacity: 1;
 }
-.icon_x:hover .delete_icon_container{
-  display: inline;
-} */
 .delete_icon_container {
   display: flex;
   align-items: center;
@@ -53,6 +57,7 @@
   margin-bottom: -17px;
   color: white;
   cursor: pointer;
+  opacity: 0;
 }
 .delete_icon {
   background-color: tomato;
@@ -64,13 +69,16 @@
 }
 .print_icon {
   margin-right: 10px;
-}
-.print {
-  color: #1976d2;
+  color: gray !important;
   cursor: pointer;
 }
-
-.print:hover {
+.print_text {
+  color: #1976d2 !important;
+}
+.print:hover .print_text {
+  color: tomato !important;
+}
+.print:hover .print_icon {
   color: tomato !important;
 }
 
@@ -83,5 +91,26 @@
   }
   .print {
     margin: 30px;
+  }
+  .skills_badges_container {
+    margin-left: 0px;
+  }
+}
+@media (max-width: 400px) {
+  .print {
+    margin: 0px;
+  }
+  .header_image {
+    width: 150px;
+    height: 150px;
+    border-radius: 75px;
+  }
+  .upload_btn {
+    padding: 1px;
+    margin-left: 100px;
+    margin-bottom: -15px;
+  }
+  .print_text {
+    display: none;
   }
 }

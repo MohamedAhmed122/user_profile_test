@@ -1,5 +1,5 @@
 .suggestion-item--active {
-  color: lightgreen;
+  font-weight: bold;
   padding: 10px;
   text-align: center;
 }

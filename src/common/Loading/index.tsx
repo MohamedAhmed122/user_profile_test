@@ -1,10 +1,9 @@
-import { CircularProgress, Backdrop } from '@material-ui/core'
-
+import { CircularProgress } from "@material-ui/core";
 
 export default function Loading() {
   return (
-    <Backdrop style={{ zIndex: 50}} open={true}>
+    <div className="flex_col">
       <CircularProgress size={50} />
-    </Backdrop>
-  )
+    </div>
+  );
 }

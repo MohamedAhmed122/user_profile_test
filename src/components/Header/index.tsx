@@ -1,15 +1,14 @@
 import React, { useContext, useState } from "react";
+import GlobalContext from "../../GlobalContext";
 import DynamicForm from "./DynamicForm";
 import LocationSearchInput from "./LocationSearchInput";
 import UploadPhoto from "./UploadPhoto";
-
 import LocalPrintshopIcon from "@material-ui/icons/LocalPrintshop";
 
-import GlobalContext from "../../GlobalContext";
 import { Skill } from "../../typings";
+import { compare } from "../../utils/utils";
 
 import "./styleHeader.css";
-
 
 const Header: React.FC = () => {
   // state for location
@@ -37,6 +36,9 @@ const Header: React.FC = () => {
   const handleDelete = (skill: string) => {
     setSkills(skills.filter((s: Skill) => s.skill !== skill));
   };
+
+  skills.sort(compare);
+
   return (
     <div className="header flex_col">
       <div className="container">
@@ -44,52 +46,68 @@ const Header: React.FC = () => {
           <div className="flex_align header_info">
             <UploadPhoto />
             <div>
-              <DynamicForm
-                displayInput={displayNameInput}
-                error={nameError}
-                setError={setNameError}
-                setDisplayInput={setDisplayNameInput}
-                inputValue={name}
-                setInputValue={setName}
-              >
-                <h1 onClick={() => setDisplayNameInput(true)} className="_mr main_title">
-                  {name}
-                </h1>
-              </DynamicForm>
-              <DynamicForm
-                displayInput={displayLangInput}
-                error={LangError}
-                setError={setLangError}
-                setDisplayInput={setDisplayLangInput}
-                inputValue={lang}
-                setInputValue={setLang}
-              >
-                <p onClick={() => setDisplayLangInput(true)} className="small_title">
-                  {lang}
-                </p>
-              </DynamicForm>
-              {displayAddressInput ? (
-                <LocationSearchInput
-                  address={address}
-                  setAddress={setAddress}
-                  setDisplayInput={setDisplayAddressInput}
-                />
-              ) : (
-                <p onClick={() => setDisplayAddressInput(true)} className="small_title">
-                  {address}
-                </p>
-              )}
-              <div className="flex_align">
+              <div className="_mr">
+                <DynamicForm
+                  displayInput={displayNameInput}
+                  error={nameError}
+                  setError={setNameError}
+                  setDisplayInput={setDisplayNameInput}
+                  inputValue={name}
+                  setInputValue={setName}
+                  fontSize={30}
+                >
+                  <h1
+                    onClick={() => setDisplayNameInput(true)}
+                    className="_mr main_title"
+                  >
+                    {name}
+                  </h1>
+                </DynamicForm>
+              </div>
+              <div className="_mr">
+                <DynamicForm
+                  displayInput={displayLangInput}
+                  error={LangError}
+                  setError={setLangError}
+                  setDisplayInput={setDisplayLangInput}
+                  inputValue={lang}
+                  setInputValue={setLang}
+                >
+                  <p
+                    onClick={() => setDisplayLangInput(true)}
+                    className="small_title"
+                  >
+                    {lang}
+                  </p>
+                </DynamicForm>
+              </div>
+              <div className="_mr">
+                {displayAddressInput ? (
+                  <LocationSearchInput
+                    displayInput={displayAddressInput}
+                    address={address}
+                    setAddress={setAddress}
+                    setDisplayInput={setDisplayAddressInput}
+                  />
+                ) : (
+                  <p
+                    onClick={() => setDisplayAddressInput(true)}
+                    className="small_title"
+                  >
+                    {address}
+                  </p>
+                )}
+              </div>
+              <div className="flex_align skills_badges_container">
                 {skills.map((s: any) => (
-                  <div key={s.skill}>
-                    <div className='icon_x'>
-                      <div
-                        className="delete_icon_container"
-                        onClick={() => handleDelete(s.skill)}
-                      >
-                        <div className="delete_icon"> x </div>
-                      </div>
+                  <div className="badge_container" key={s.skill}>
+                    <div
+                      className="delete_icon_container"
+                      onClick={() => handleDelete(s.skill)}
+                    >
+                      <div className="delete_icon"> x </div>
                     </div>
+
                     <div className="badge">{s.skill}</div>
                   </div>
                 ))}
@@ -114,8 +132,8 @@ const Header: React.FC = () => {
           </div>
           <div>
             <div className="flex_align print" onClick={handlePrint}>
-              <LocalPrintshopIcon style={{ marginRight: 10 }} />
-              <p>Print Page</p>
+              <LocalPrintshopIcon className='print_icon' />
+              <p className='print_text'>Print Page</p>
             </div>
           </div>
         </div>

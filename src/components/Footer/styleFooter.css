@@ -1,6 +1,7 @@
 .footer {
   display: flex;
   align-items: center;
+  margin-bottom: 30px;
 }
 .footer_contain_container,
 .map_container {

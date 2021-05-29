@@ -5,7 +5,11 @@
 
 html,
 body {
-  font-family: "Fira Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
+}
+h1,
+h3 {
+  font-weight: 700;
 }
 
 button {
@@ -62,7 +66,7 @@ a {
   justify-content: center;
   flex-wrap: wrap;
 }
-.input {
+.input_container {
   background-color: rgba(0, 0, 0, 0.06);
   border-bottom: 1px solid black;
 }
@@ -71,7 +75,7 @@ a {
   border-bottom: 1px solid red;
 }
 
-.input > input {
+.input_main {
   outline-width: 0;
   flex: 1;
   background-color: transparent;

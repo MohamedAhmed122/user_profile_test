@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
 import SampleCode from "./SampleCode";
-import "./styleBody.css";
 import Experience from "./Experience/index";
 import GlobalContext from "../../GlobalContext";
 import { Skill } from "../../typings";
 import { compare } from "../../utils/utils";
+
+import "./styleBody.css";
 
 const Body: React.FC = () => {
   const { skills } = useContext(GlobalContext);
@@ -46,7 +47,7 @@ export default Body;
 
 const data = [
   "Lorem ipsum dolor sit amet consectetur adipisicing elit",
-  "quia quidem, nam distinctio minima officiis! amet consectetur adipisicing",
-  "Lorem ipsum dolor sit amet consectetur adipisicing elit amet consectetur adipisicing",
+  "quia quidem, nam distinctio minima officiis! amet consectetur ",
+  "Lorem ipsum dolor sit amet consectetur adipisicing elit amet ",
   "non suscipit obcaecati repudiandae, quasi nobis voluptates",
 ];

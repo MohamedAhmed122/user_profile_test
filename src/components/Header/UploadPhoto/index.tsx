@@ -7,7 +7,6 @@ function UploadPhoto() {
 
   const fileInputRef = useRef<any>(null);
 
-
   useEffect(() => {
     if (image) {
       const reader = new FileReader();
@@ -24,7 +23,7 @@ function UploadPhoto() {
     <div>
       <form>
         {preview ? (
-          <>
+          <div className="image_container">
             <button
               className="upload_btn"
               onClick={(event) => {
@@ -43,9 +42,9 @@ function UploadPhoto() {
                 setImage(null);
               }}
             />
-          </>
+          </div>
         ) : (
-          <>
+          <div className="image_container">
             <button
               className="upload_btn"
               onClick={(event) => {
@@ -60,7 +59,7 @@ function UploadPhoto() {
               src="https://content.fortune.com/wp-content/uploads/2015/05/rtx1b282.jpg"
               alt="profile"
             />
-          </>
+          </div>
         )}
         <input
           type="file"

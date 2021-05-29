@@ -14,7 +14,7 @@ const Map = () => {
     if (isLocationChanged) {
       setTimeout(() => {
         setIsLocationChanged(false);
-      }, 1000);
+      }, 500);
     }
   }, [isLocationChanged, setIsLocationChanged]);
 
